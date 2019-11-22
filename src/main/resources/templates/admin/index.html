@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="admin/_fragments :: head(~{::title)">
+<head th:replace="admin/_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>博客管理</title>
@@ -38,14 +38,6 @@
     </a>
 </nav>
 
-<div class="ui attached pointing menu">
-    <div class="ui container">
-        <div class="right menu">
-            <a href="#" class="item">发布</a>
-            <a href="#" class="active teal item">列表</a>
-        </div>
-    </div>
-</div>
 
 <!-- 中间内容 -->
 <div class="m-container-small m-padded-tb-big">
@@ -55,7 +47,7 @@
             <p>Dong，欢迎登陆</p>
         </div>
 
-        <img src="https://picsum.photos/id/1005/800/400" th:src="" alt="" class="ui rounded bordered fluid image">
+        <img src="https://picsum.photos/id/1005/800/400" alt="" class="ui rounded bordered fluid image">
     </div>
 </div>
 
@@ -112,6 +104,8 @@
     $('.ui.dropdown').dropdown({
         on: 'hover'
     });
+
+
 </script>
 </body>
 </html>
