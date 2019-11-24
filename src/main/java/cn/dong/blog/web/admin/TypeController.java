@@ -1,4 +1,4 @@
-package cn.dong.blog.web;
+package cn.dong.blog.web.admin;
 
 import cn.dong.blog.po.Type;
 import cn.dong.blog.service.TypeService;
