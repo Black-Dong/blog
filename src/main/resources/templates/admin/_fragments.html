@@ -23,9 +23,9 @@
         <!-- stackable: 可堆叠的，适应手机端-->
         <div class="ui inverted secondary menu stackable">
             <h2 class="ui teal header item">管理后台</h2>
-            <a href="#" class="item m-item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>博客</a>
-            <a href="#" class="item m-item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
-            <a href="#" class="item m-item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>标签</a>
+            <a href="#" th:href="@{/admin/blogs}" class="item m-item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class="item m-item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}" class="item m-item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>标签</a>
 
             <div class="right menu m-item m-mobile-hide">
                 <div class="item ui dropdown">

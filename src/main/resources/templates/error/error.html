@@ -43,8 +43,17 @@
 <div class="m-container-small m-padded-tb-massive">
     <div class="ui error message">
         <div class="ui container">
-            <h2>404</h2>
+            <h2>未知异常</h2>
             <p>运行时未知错误，如有需要请联系管理员</p>
+            <div>
+                <div th:utext="'&lt;!--'" th:remove="tag"></div>
+                <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+                <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+                <ul th:remove="tag">
+                    <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+                </ul>
+                <div th:utext="'--&gt;'" th:remove="tag"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -96,17 +105,6 @@
     </div>
 
 </footer>
-
-
-    <div>
-        <div th:utext="'&lt;!--'" th:remove="tag"></div>
-        <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
-        <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
-        <ul th:remove="tag">
-            <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
-        </ul>
-        <div th:utext="'--&gt;'" th:remove="tag"></div>
-    </div>
 
 <!--/*/<th:block th:replace="_fragments :: script">/*/-->
 <script src="../../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
