@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 /**
+ * 日志切面
+ *      悄悄记录你ip、访问地址、访问了啥、服务器返回了啥的，就是这个
  * @author : Dong
  * @date : 2019/11/21 15:25
  */
@@ -22,6 +24,9 @@ public class LogAspect {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     * 切入面 切入点表达式
+     */
     @Pointcut("execution(* cn.dong.blog.web.*.*(..))")
     public void log() {
     }

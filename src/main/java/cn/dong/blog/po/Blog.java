@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * 博客类
  * @author : Dong
  * @date : 2019/11/21 21:02
  */

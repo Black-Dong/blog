@@ -3,6 +3,9 @@ package cn.dong.blog;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Dong
+ */
 @SpringBootApplication
 public class BlogApplication {
 

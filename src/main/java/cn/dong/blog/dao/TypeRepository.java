@@ -9,5 +9,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface TypeRepository extends JpaRepository<Type,Long> {
 
+    /**
+     * 通过名字找个分类
+     * @param name
+     * @return
+     */
     Type findByName(String name);
 }
