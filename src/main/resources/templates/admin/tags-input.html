@@ -10,7 +10,7 @@
 </head>
 <body>
 <!-- 导航 -->
-<nav th:replace="admin/_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+<nav th:replace="admin/_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <!-- stackable: 可堆叠的，适应手机端-->
         <div class="ui inverted secondary menu stackable">
@@ -42,8 +42,8 @@
 <div class="ui attached pointing menu">
     <div class="ui container">
         <div class="right menu">
-            <a href="#" class="active teal item" th:href="@{/admin/types/input}">新增</a>
-            <a href="#" class="item" th:href="@{/admin/types}">列表</a>
+            <a href="#" class="active teal item" th:href="@{/admin/tags/input}">新增</a>
+            <a href="#" class="item" th:href="@{/admin/tags}">列表</a>
         </div>
     </div>
 </div>
@@ -51,7 +51,7 @@
 <!-- 中间内容 -->
 <div class="m-container-small m-padded-tb-big">
     <div class="ui container">
-        <form action="#" method="post" th:action="@{/admin/types/save}" class="ui form" th:object="${type}">
+        <form action="#" method="post" th:action="@{/admin/tags/save}" class="ui form" th:object="${tag}">
 
             <div class="required field">
                 <div class="ui left labeled input">
@@ -151,7 +151,7 @@
     $('.ui.form').form({
         fields: {
             title: {
-                identifier: 'name',
+                identifier: 'name11',
                 rules: [{
                     type: 'empty',
                     prompt: '标题: 请输入分类名称'

@@ -9,7 +9,7 @@
 </head>
 <body>
 <!-- 导航 -->
-<nav th:replace="admin/_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+<nav th:replace="admin/_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <!-- stackable: 可堆叠的，适应手机端-->
         <div class="ui inverted secondary menu stackable">
@@ -65,12 +65,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="type,iterStat : ${page.content}">
+                <tr th:each="tag,iterStat : ${page.content}">
                     <td th:text="${iterStat.count}">1</td>
-                    <td th:text="${type.name}">刻意练习清单</td>
+                    <td th:text="${tag.name}">刻意练习清单</td>
                     <td>
-                        <a href="#" th:href="@{/admin/tags/{id}/input(id=${tags.id})}" class="ui mini teal basic button">编辑</a>
-                        <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tags.id})}" class="ui mini red basic button">删除</a>
+                        <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}" class="ui mini teal basic button">编辑</a>
+                        <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}" class="ui mini red basic button">删除</a>
                     </td>
                 </tr>
             </tbody>
