@@ -71,7 +71,7 @@ public class BlogController {
     @GetMapping("/blogs/input")
     public String input(Model model) {
 
-        model.addAttribute("blog", new Blog(new Type()));
+        model.addAttribute("blog", new Blog());
         setTypeAndTag(model);
         return "admin/blogs-input";
     }
@@ -119,6 +119,14 @@ public class BlogController {
             redirectAttributes.addFlashAttribute("message","操作成功");
         }
 
+        return "redirect:/admin/blogs";
+    }
+
+
+    @GetMapping("/blogs/{id}/delete")
+    public String delete(@PathVariable Long id,RedirectAttributes redirectAttributes){
+        blogService.deleteBlog(id);
+        redirectAttributes.addFlashAttribute("message","删除成功");
         return "redirect:/admin/blogs";
     }
 }
