@@ -55,6 +55,12 @@ public class TagServiceImpl implements TagService {
 
         return tagRepository.findAllById(covertToList(ids));
     }
+
+    /**
+     * 将一组id组成的字符串 eg: 1,2,3 转化为id组成的集合
+     * @param ids
+     * @return
+     */
     private List<Long> covertToList(String ids){
         List<Long> list = new ArrayList<>();
         if (ids != null && !"".equals(ids)){

@@ -11,13 +11,31 @@ import org.springframework.data.domain.Pageable;
  */
 public interface BlogService {
 
+    /**
+     * 根据id获取一篇博客
+     * @param id
+     * @return
+     */
     Blog getBlog(Long id);
 
+    /**
+     * 根据blogSearch 和 pageable中的条件进行分页查询博客列表
+     * @param pageable
+     * @param blogSearch
+     * @return
+     */
     Page<Blog> listBlog(Pageable pageable, BlogSearch blogSearch);
 
+    /**
+     * 保存博客
+     * @param blog
+     * @return
+     */
     Blog saveBlog(Blog blog);
 
-    Blog updateBlog(Long id, Blog blog);
-
+    /**
+     * 删除博客
+     * @param id
+     */
     void deleteBlog(Long id);
 }

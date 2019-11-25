@@ -73,15 +73,6 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.save(blog);
     }
 
-    @Override
-    public Blog updateBlog(Long id, Blog blog) {
-        Blog b = blogRepository.getOne(id);
-        if (b == null) {
-            throw new NotFoundException("您要修改的博客不存在");
-        }
-        BeanUtils.copyProperties(b, blog);
-        return blogRepository.save(b);
-    }
 
     @Override
     public void deleteBlog(Long id) {

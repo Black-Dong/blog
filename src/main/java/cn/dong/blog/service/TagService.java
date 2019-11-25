@@ -43,8 +43,17 @@ public interface TagService {
     Page<Tag> listTag(Pageable pageable);
 
 
+    /**
+     * 获取所有标签
+     * @return
+     */
     List<Tag> listTag();
 
+    /**
+     * 根据传入的标签id字符串，获取标签，标签之间以","隔开
+     * @param ids
+     * @return
+     */
     List<Tag> listTags(String ids);
 
     /**
