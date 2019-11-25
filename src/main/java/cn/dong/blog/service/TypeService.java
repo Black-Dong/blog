@@ -4,6 +4,8 @@ import cn.dong.blog.po.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * 分类的service
  * @author : Dong
@@ -39,6 +41,12 @@ public interface TypeService {
      * @return
      */
     Page<Type> listType(Pageable pageable);
+
+    /**
+     * 查询所有分类
+     * @return
+     */
+    List<Type> listType();
 
     /**
      * 删除分类

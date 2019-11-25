@@ -85,8 +85,8 @@ public class TagsController {
     public String saveType(@Valid Tag tag, BindingResult bindingResult, RedirectAttributes redirectAttributes){
         final boolean state = tagService.getTagByName(tag.getName()) == null ? true : false;
         if (!state){
-            // 添加nameError错误，错误信息为"不能添加重复分类"，使用set给对象的的name
-            bindingResult.rejectValue("name","nameError","不能添加重复分类");
+            // 添加nameError错误，错误信息为"不能添加重复标签"，使用set给对象的的name
+            bindingResult.rejectValue("name","nameError","不能添加重复标签");
         }
         // 如果bindingResult有错误
         if (bindingResult.hasErrors()){

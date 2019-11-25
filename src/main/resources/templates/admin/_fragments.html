@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:replace="${title}">博客详情页</title>
     <link rel="stylesheet" href="../static/Semantic-UI-CSS-master/semantic.min.css" th:href="@{/Semantic-UI-CSS-master/semantic.min.css}">
-    <!--排版-->
-    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
-    <!--动画-->
-    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
-    <!--代码高亮-->
-    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
-    <!--生成目录，h? 必须有id-->
-    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
 </head>
 <body>
@@ -30,8 +22,8 @@
             <div class="right menu m-item m-mobile-hide">
                 <div class="item ui dropdown">
                     <div class="text">
-                        <img class="ui avatar image" src="https://picsum.photos/id/1005/100/100">
-                        Dong
+                        <img class="ui avatar image" src="https://picsum.photos/id/1005/100/100" th:src="@{${session.user.avatar}}">
+                        <span th:text="${session.user.nickName}"></span>
                     </div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
@@ -92,11 +84,6 @@
 <th:block th:fragment="script">
     <script src="../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
     <script src="../static/Semantic-UI-CSS-master/semantic.min.js" th:src="@{/Semantic-UI-CSS-master/semantic.min.js}"></script>
-    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
-    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
-    <script src="../static/lib/qrcode/qrcode.min.js " th:src="@{/lib/qrcode/qrcode.min.js}"></script>
-    <script src="../static/lib/scrollTo/jquery.scrollTo.min.js" th:src="@{/lib/scrollTo/jquery.scrollTo.min.js}"></script>
-    <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 </th:block>
 
 </body>
