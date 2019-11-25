@@ -1,6 +1,8 @@
 package cn.dong.blog.web.admin;
 
 import cn.dong.blog.po.Blog;
+import cn.dong.blog.po.Tag;
+import cn.dong.blog.po.Type;
 import cn.dong.blog.po.User;
 import cn.dong.blog.service.BlogService;
 import cn.dong.blog.service.TagService;
@@ -14,11 +16,13 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * 博客管理 的Controller
@@ -66,9 +70,37 @@ public class BlogController {
 
     @GetMapping("/blogs/input")
     public String input(Model model) {
-        model.addAttribute("blog", new Blog());
+
+        model.addAttribute("blog", new Blog(new Type()));
+        setTypeAndTag(model);
+        return "admin/blogs-input";
+    }
+
+    private void setTypeAndTag(Model model){
         model.addAttribute("types", typeService.listType());
         model.addAttribute("tags", tagService.listTag());
+    }
+
+    @GetMapping("/blogs/{id}/input")
+    public String editInput(@PathVariable Long id, Model model) {
+        setTypeAndTag(model);
+        Blog blog = blogService.getBlog(id);
+
+        StringBuffer tagIds = new StringBuffer();;
+        List<Tag> tags = blog.getTags();
+        if (!tags.isEmpty()){
+            boolean flag = false;
+            for(Tag tag: tags){
+                if (flag){
+                    tagIds.append(",");
+                }else {
+                    flag = true;
+                }
+                tagIds.append(tag.getId());
+            }
+        }
+        model.addAttribute("blog", blog);
+        model.addAttribute("tagIds", tagIds);
         return "admin/blogs-input";
     }
 

@@ -50,6 +50,10 @@ public class Blog {
     public Blog() {
     }
 
+    public Blog(Type type) {
+        this.type = type;
+    }
+
     public List<Comment> getComments() {
         return comments;
     }
