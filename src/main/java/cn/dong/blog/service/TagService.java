@@ -4,6 +4,8 @@ import cn.dong.blog.po.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * 标签的Service
  * @author : Dong
@@ -39,6 +41,11 @@ public interface TagService {
      * @return
      */
     Page<Tag> listTag(Pageable pageable);
+
+
+    List<Tag> listTag();
+
+    List<Tag> listTags(String ids);
 
     /**
      * 删除标签

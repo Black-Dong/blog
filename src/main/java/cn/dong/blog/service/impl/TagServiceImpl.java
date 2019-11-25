@@ -7,12 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : Dong
  * @date : 2019/11/24 18:31
  */
 @Service
+@Transactional
 public class TagServiceImpl implements TagService {
 
     @Autowired
@@ -37,6 +42,30 @@ public class TagServiceImpl implements TagService {
     public Page<Tag> listTag(Pageable pageable) {
         return tagRepository.findAll(pageable);
     }
+
+    @Override
+    public List<Tag> listTag() {
+        return tagRepository.findAll();
+    }
+
+
+
+    @Override
+    public List<Tag> listTags(String ids) {
+
+        return tagRepository.findAllById(covertToList(ids));
+    }
+    private List<Long> covertToList(String ids){
+        List<Long> list = new ArrayList<>();
+        if (ids != null && !"".equals(ids)){
+            String[] idarray = ids.split(",");
+            for (int i = 0; i < idarray.length; i++) {
+                list.add(new Long(idarray[i]));
+            }
+        }
+        return list;
+    }
+
 
     @Override
     public void deleteTag(Long id) {
