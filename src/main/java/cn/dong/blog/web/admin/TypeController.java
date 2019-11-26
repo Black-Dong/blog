@@ -72,7 +72,7 @@ public class TypeController {
     /**
      * 保存
      *   -- 新增与修改公用
-     *      因为Jpa新增和修改都是使用save方法，且点击修改时已使用过查询确定要修改对象，所以使用同一个方法
+     *      因为Jpa新增和修改都是使用save方法，且点击修改时已使用过查询 确定了要修改对象 且对象所有属性都已传递，所以使用同一个方法
      *   -- 在Tag中的name属性上使用了@NotBlank(message = "标签不嫩为空")
      *          参数传递@Valid验证Tag之后（必须紧接着Type）使用参数BindingResult类型，
      *          在bindingResult可以获取验证的相关信息，还能自定义错误及信息

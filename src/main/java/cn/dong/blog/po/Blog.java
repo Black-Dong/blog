@@ -1,5 +1,7 @@
 package cn.dong.blog.po;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,10 +32,17 @@ public class Blog {
     private boolean commentStatus;
     private boolean publicStatus;
     private boolean recommendStatus;
+
     @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
+
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private String description;
 
     @ManyToOne
     private Type type;
@@ -50,6 +59,13 @@ public class Blog {
     public Blog() {
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     public List<Comment> getComments() {
         return comments;
     }
@@ -199,9 +215,14 @@ public class Blog {
                 ", shareStatus=" + shareStatus +
                 ", commentStatus=" + commentStatus +
                 ", publicStatus=" + publicStatus +
-                ", recommentStatus=" + recommendStatus +
+                ", recommendStatus=" + recommendStatus +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", tags=" + tags +
+                ", user=" + user +
+                ", comments=" + comments +
                 '}';
     }
 }

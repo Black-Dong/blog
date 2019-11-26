@@ -8,6 +8,7 @@ import cn.dong.blog.service.BlogService;
 import cn.dong.blog.service.TagService;
 import cn.dong.blog.service.TypeService;
 import cn.dong.blog.vo.BlogSearch;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
