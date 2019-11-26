@@ -31,10 +31,14 @@
 
             <div class="right item m-item m-mobile-hide">
                 <!-- transparent: 透明 -->
-                <div class="ui input icon inverted transparent">
-                    <input type="text" placeholder="Search...">
-                    <i class="search link icon"></i>
-                </div>
+                <form name="search-form" action="#" th:action="@{/search}" method="post" target="_blank">
+                    <input type="hidden" name="page">
+                    <div class="ui input icon inverted transparent">
+                        <input type="text" name="search" placeholder="Search..." th:value="${search}">
+                        <i onclick="document.forms['search-form'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>

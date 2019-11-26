@@ -49,6 +49,13 @@ public interface TypeService {
     List<Type> listType();
 
     /**
+     * 查询前size条分类
+     * @param size
+     * @return
+     */
+    List<Type> listTypeTop(Integer size);
+
+    /**
      * 删除分类
      * @param id
      */

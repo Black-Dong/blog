@@ -57,6 +57,13 @@ public interface TagService {
     List<Tag> listTags(String ids);
 
     /**
+     * 根据传入size，获取博客数最多的size条tag
+     * @param size
+     * @return
+     */
+    List<Tag> listTagTop(Integer size);
+
+    /**
      * 删除标签
      * @param id
      */
