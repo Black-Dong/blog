@@ -23,6 +23,7 @@ public interface BlogService {
 
     /**
      * 前端获取并展示blog
+     *
      * @param id
      * @return
      */
@@ -46,15 +47,26 @@ public interface BlogService {
     Page<Blog> listBlog(Pageable pageable);
 
     /**
+     * 根据tagId查询博客列表
+     *
+     * @param pageable
+     * @param tagId
+     * @return
+     */
+    Page<Blog> listBlog(Pageable pageable, Long tagId);
+
+    /**
      * 根据search内容分页查询
+     *
      * @param pageable
      * @param search
      * @return
      */
-    Page<Blog> listBlog(String search,Pageable pageable);
+    Page<Blog> listBlog(String search, Pageable pageable);
 
     /**
      * 查找size条推荐博客
+     *
      * @param size
      * @return
      */

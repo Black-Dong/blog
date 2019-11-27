@@ -10,10 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : Dong
@@ -51,14 +48,14 @@ public class IndexController {
 
     /**
      * 根据传入的search条件查询标题和内容，查询除博客列表返回
-     *  TODO: 有Bug，查询后的分页实现不了,现在强制每页10000条
+     *
      * @param pageable
      * @param search
      * @param model
      * @return
      */
-    @PostMapping("/search")
-    public String search(@PageableDefault(size = 10000,sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    @RequestMapping("/search")
+    public String search(@PageableDefault(sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String search,  Model model) {
         model.addAttribute("page",blogService.listBlog("%"+search+"%",pageable));
         model.addAttribute("search",search);
