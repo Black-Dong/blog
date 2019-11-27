@@ -22,6 +22,13 @@ public interface BlogService {
     Blog getBlog(Long id);
 
     /**
+     * 前端获取并展示blog
+     * @param id
+     * @return
+     */
+    Blog getAndConvertBlog(Long id);
+
+    /**
      * 根据blogSearch 和 pageable中的条件进行分页查询博客列表
      *
      * @param pageable
