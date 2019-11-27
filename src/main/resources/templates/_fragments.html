@@ -64,11 +64,15 @@
                 </div>
             </div>
             <div class="three wide column">
-                <h4 class="ui inverted header m-text-spaced m-opacity-mini">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item m-text-lined">用户故事（User Story）</a>
-                    <a href="#" class="item m-text-lined">关于刻意练习的清单</a>
-                    <a href="#" class="item m-text-lined">失败要趁早</a>
+                <h4 class="ui inverted header m-text-spaced m-opacity-mini">最新推荐</h4>
+                <div id="newblog-container">
+                    <div class="ui inverted link list" th:fragment="newblogList">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-lined" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事（User Story）</a>
+                        <!--/*-->
+                        <a href="#" class="item m-text-lined">关于刻意练习的清单</a>
+                        <a href="#" class="item m-text-lined">失败要趁早</a>
+                        <!--*/-->
+                    </div>
                 </div>
             </div>
             <div class="three wide column">
@@ -100,6 +104,10 @@
     <script src="../static/lib/qrcode/qrcode.min.js " th:src="@{/lib/qrcode/qrcode.min.js}"></script>
     <script src="../static/lib/scrollTo/jquery.scrollTo.min.js" th:src="@{/lib/scrollTo/jquery.scrollTo.min.js}"></script>
     <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+
+    <script>
+        $("#newblog-container").load(/*[[@{/footer/newblogs}]]*/"/footer/newblogs");
+    </script>
 </th:block>
 
 </body>
