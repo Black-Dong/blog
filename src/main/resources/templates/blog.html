@@ -722,7 +722,7 @@ h5,h6{font-size:1em;}
     });
 
     /*二维码生成*/
-    let serurl = "127.0.0.1:8080";
+    let serurl = /*[[#{blog.serurl}]]*/"";
     let url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
     let qrcode = new QRCode("qrcode", {
         text: serurl + url,
