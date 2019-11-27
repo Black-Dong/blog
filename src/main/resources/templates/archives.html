@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>归档</title>
@@ -9,7 +9,7 @@
 </head>
 <body>
 <!-- 导航 -->
-<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+<nav th:replace="_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <!-- stackable: 可堆叠的，适应手机端-->
         <div class="ui inverted secondary menu stackable">
@@ -45,33 +45,25 @@
                     <h3 class="ui teal header">归档</h3>
                 </div>
                 <div class="column right aligned">
-                    共 <h2 class="ui orange header m-inline-block"> 114 </h2> 篇博客
+                    共 <h2 class="ui orange header m-inline-block" th:text="${blogCount}"> 114 </h2> 篇博客
                 </div>
             </div>
         </div>
 
+        <th:block th:each="item : ${archiveMap}">
+            <h2 class="ui header center aligned" th:text="${item.key}">2017</h2>
+            <div class="ui fluid vertical menu" th:each="blog : ${item.value}">
+                <a href="#" target="_blank" class="item" th:href="@{/blog/{id}(id=${blog.id})}">
+                    <span>
+                        <i class="teal mini circle icon"></i><span th:text="${blog.title}">关于可以练习的清单</span>
+                        <div class="ui teal basic label m-padded-mini" style="margin-left: 1em" th:text="${#dates.format(blog.updateTime,'MMMdd')}">9月03日</div>
+                    </span>
+                    <div class="ui orange basic label" th:text="${blog.flag}">原创</div>
+                </a>
+            </div>
+        </th:block>
 
-        <h2 class="ui header center aligned">2017</h2>
-        <div class="ui fluid vertical menu">
-            <a href="#" target="_blank" class="item">
-                <span>
-                    <i class="teal mini circle icon"></i>关于可以练习的清单
-                    <div class="ui teal basic label m-padded-mini" style="margin-left: 1em">9月03日</div>
-                </span>
-                <div class="ui orange basic label">原创</div>
-            </a>
-        </div>
 
-        <h2 class="ui header center aligned">2016</h2>
-        <div class="ui fluid vertical menu">
-            <a href="#" target="_blank" class="item">
-                <span>
-                    <i class="teal mini circle icon"></i>关于可以练习的清单
-                    <div class="ui teal basic label m-padded-mini" style="margin-left: 1em">9月03日</div>
-                </span>
-                <div class="ui orange basic label">原创</div>
-            </a>
-        </div>
         <!--分页-->
         <div class="ui bottom attached segment">
             <div class="ui grid two column middle aligned">
@@ -88,7 +80,7 @@
 
 <!-- 底部 -->
 <!-- vertical:垂直的 segment:线框 -->
-<footer class="ui inverted vertical segment m-padded-tb-huge">
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-huge">
     <div class="ui  center aligned container">
         <div class="ui inverted divided stackable grid">
             <div class="three wide column">
@@ -127,9 +119,10 @@
 
 </footer>
 
-<script src="../static/js/jquery-3.1.1.min.js"></script>
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
 <script src="../static/Semantic-UI-CSS-master/semantic.min.js"></script>
-
+<!--/*/</th:block>/*/-->
 <script>
     $(".menu.toggle").click(function () {
         $(".m-item").toggleClass('m-mobile-hide');

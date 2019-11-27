@@ -63,8 +63,7 @@ public class IndexController {
     }
 
     /**
-     * TODO: 这个之后写
-     *
+     * 跳转博客详情页
      * @return
      */
     @GetMapping("/blog/{id}")

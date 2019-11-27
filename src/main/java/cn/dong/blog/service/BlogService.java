@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Dong
@@ -72,6 +73,14 @@ public interface BlogService {
      */
     List<Blog> listRecommendBlogTop(Integer size);
 
+
+    /**
+     * 获取归档Map
+     * @return
+     */
+    Map<String,List<Blog>> archiveBlog();
+
+
     /**
      * 保存博客
      *
@@ -86,4 +95,10 @@ public interface BlogService {
      * @param id
      */
     void deleteBlog(Long id);
+
+    /**
+     * 统计博客数量
+     * @return
+     */
+    Long countBlog();
 }

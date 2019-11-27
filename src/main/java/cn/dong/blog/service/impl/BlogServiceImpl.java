@@ -18,16 +18,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author : Dong
  * @date : 2019/11/25 9:25
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class BlogServiceImpl implements BlogService {
 
     @Autowired
@@ -79,6 +77,18 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public Map<String, List<Blog>> archiveBlog() {
+
+        List<String> years = blogRepository.findGroupYear();
+        Map<String,List<Blog>> archiveMap = new HashMap<>();
+        for (String year : years){
+            archiveMap.put(year,blogRepository.findByYear(year));
+        }
+
+        return archiveMap;
+    }
+
+    @Override
     public List<Blog> listRecommendBlogTop(Integer size) {
         Pageable pageable = PageRequest.of(0,size, Sort.Direction.DESC,"updateTime");
         return blogRepository.findTop(pageable);
@@ -117,6 +127,11 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.save(blog);
     }
 
+
+    @Override
+    public Long countBlog() {
+        return blogRepository.count();
+    }
 
     @Override
     public void deleteBlog(Long id) {
