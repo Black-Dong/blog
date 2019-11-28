@@ -483,12 +483,12 @@ h5,h6{font-size:1em;}
                     <div class="ui orange basic label">
                         <div class="ui images" style="font-size: inherit">
                             <div class="image">
-                                <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded bordered image"
+                                <img src="../static/images/wechat.jpg" th:src="@{#{ali.pay.barcode}}" alt="" class="ui rounded bordered image"
                                      style="width: 120px">
                                 <div>支付宝</div>
                             </div>
                             <div class="image">
-                                <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded bordered image"
+                                <img src="../static/images/wechat.jpg" th:src="@{#{weixin.pay.barcode}}" alt="" class="ui rounded bordered image"
                                      style="width: 120px">
                                 <div>微信</div>
                             </div>
@@ -510,7 +510,7 @@ h5,h6{font-size:1em;}
                     </ul>
                 </div>
                 <div class="five wide column">
-                    <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui right floated rounded bordered image"
+                    <img src="../static/images/wechat.jpg" th:src="@{#{weixin.barcode}}" alt="" class="ui right floated rounded bordered image"
                          style="width: 110px">
                 </div>
             </div>
@@ -624,7 +624,7 @@ h5,h6{font-size:1em;}
 <div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
     <div class="ui vertical icon buttons ">
         <button id="toc" type="button" class="ui teal button">目录</button>
-        <a href="#comment-container" class="ui teal button">留言</a>
+<!--        <a href="#comment-container" class="ui teal button">留言</a>-->
         <button class="ui wechat icon button"><i class="wechat icon"></i></button>
         <div id="toTopButton" class="ui icon button"><i class="chevron up icon"></i></div>
     </div>
@@ -633,7 +633,7 @@ h5,h6{font-size:1em;}
 <div class="ui top-container flowing popup transition hidden" style="width: 250px">
     <ol class="js-toc"></ol>
 </div>
-<!--二维码-->
+<!--文章二维码-->
 <div id="qrcode" class="ui wechat-add flowing popup transition hidden" style="width: 130px">
     <!--    <img src="./static/images/wechat.jpg" alt="" class="ui rounded image" style="width: 120px">-->
 </div>

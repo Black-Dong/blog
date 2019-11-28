@@ -41,7 +41,7 @@
         <div class="ui grid stackable">
             <div class="eleven wide column">
                 <div class="ui segment">
-                    <img src="https://picsum.photos/id/1005/800/600" alt="" class="ui rounded image">
+                    <img src="https://picsum.photos/id/1005/800/600" th:src="@{#{about.me.picture}}" alt="" class="ui rounded image">
                 </div>
             </div>
             <div class="five wide column">
@@ -72,7 +72,7 @@
                     <a href="#" class="ui wechat circular icon  button">
                         <i class="wechat icon"></i>
                     </a>
-                    <a href="#" class="ui circular icon button qq" data-content="1102020734"
+                    <a href="#" class="ui circular icon button qq" data-content="1102020734" th:data-content="#{index.qq}"
                        data-position="bottom center">
                         <i class="qq icon"></i>
                     </a>
@@ -80,7 +80,7 @@
 
                 <!--微信二维码-->
                 <div class="ui wechat-add flowing popup transition hidden">
-                    <img src="../static/images/wechat.jpg" alt="" class="ui rounded image" style="width: 110px">
+                    <img src="../static/images/wechat.jpg" th:src="@{#{weixin.barcode}}" alt="" class="ui rounded image" style="width: 110px">
                 </div>
 
             </div>
@@ -111,8 +111,8 @@
             <div class="three wide column">
                 <h4 class="ui inverted header m-text-spaced m-opacity-mini">联系我</h4>
                 <div class="ui inverted link list">
-                    <a href="#" class="item m-text-lined">QQ：865729312</a>
-                    <a href="#" class="item m-text-lined">Email：lirenmi@163.com</a>
+                    <a href="#" class="item m-text-lined">QQ：<span th:text="#{index.qq}">000000</span></a>
+                    <a href="#" class="item m-text-lined">Email：<span th:text="#{index.email}">*****@163.com</span></a>
                 </div>
             </div>
             <div class="seven wide column">
