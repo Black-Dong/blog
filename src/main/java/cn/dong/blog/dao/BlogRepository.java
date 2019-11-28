@@ -12,18 +12,19 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- *
  * JpaRepository : 含有对数据库的简单操作
  * JpaSpecificationExecutor : 含有 like where 等特殊一点的操作
- *
+ * <p>
  * 接口可以多继承接口
+ *
  * @author : Dong
  * @date : 2019/11/25 9:54
  */
-public interface BlogRepository extends JpaRepository<Blog, Long> , JpaSpecificationExecutor<Blog> {
+public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificationExecutor<Blog> {
 
     /**
      * 根据pageable中的属性查询博客列表
+     *
      * @param pageable
      * @return
      */
@@ -31,11 +32,12 @@ public interface BlogRepository extends JpaRepository<Blog, Long> , JpaSpecifica
     List<Blog> findTop(Pageable pageable);
 
     @Query("select b from Blog b where b.title like ?1 or b.content like ?1")
-    Page<Blog> findBlogsBySearch( String search,Pageable pageable);
+    Page<Blog> findBlogsBySearch(String search, Pageable pageable);
 
 
     /**
-     *  select date_format(b.updateTime, '%Y') as year from t_blog b group by year order by year desc;
+     * select date_format(b.updateTime, '%Y') as year from t_blog b group by year order by year desc;
+     *
      * @return
      */
     @Query("select function('date_format',b.updateTime,'%Y') as year from Blog b group by function('date_format',b.updateTime,'%Y') order by year desc")
@@ -43,6 +45,7 @@ public interface BlogRepository extends JpaRepository<Blog, Long> , JpaSpecifica
 
     /**
      * select * from t_blog b where date_from(b.updateTime, '%Y') = 'yyyy';
+     *
      * @param year
      * @return
      */
@@ -51,6 +54,7 @@ public interface BlogRepository extends JpaRepository<Blog, Long> , JpaSpecifica
 
     /**
      * 修改浏览次数
+     *
      * @param id
      * @return
      */

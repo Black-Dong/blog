@@ -56,28 +56,29 @@ public class IndexController {
      */
     @RequestMapping("/search")
     public String search(@PageableDefault(sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                         @RequestParam String search,  Model model) {
-        model.addAttribute("page",blogService.listBlog("%"+search+"%",pageable));
-        model.addAttribute("search",search);
+                         @RequestParam String search, Model model) {
+        model.addAttribute("page", blogService.listBlog("%" + search + "%", pageable));
+        model.addAttribute("search", search);
         return "search";
     }
 
     /**
      * 跳转博客详情页
+     *
      * @return
      */
     @GetMapping("/blog/{id}")
     public String blog(@PathVariable Long id, Model model) {
 
-        model.addAttribute("blog",blogService.getAndConvertBlog(id));
+        model.addAttribute("blog", blogService.getAndConvertBlog(id));
         return "blog";
     }
 
 
     @GetMapping("/footer/newblogs")
-    public String newblogs(Model model){
+    public String newblogs(Model model) {
 
-        model.addAttribute("newblogs",blogService.listRecommendBlogTop(3));
+        model.addAttribute("newblogs", blogService.listRecommendBlogTop(3));
         return "_fragments::newblogList";
     }
 }
