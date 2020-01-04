@@ -55,8 +55,8 @@
             <div class="required field">
                 <div class="ui left labeled input">
                     <input type="hidden" name="id" th:value="*{id}">
-                    <label class="ui teal basic label">分类名称</label>
-                    <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
+                    <label class="ui teal basic label">标签名称</label>
+                    <input type="text" name="name" placeholder="标签名称" th:value="*{name}">
                 </div>
             </div>
 <!--/*/
@@ -150,10 +150,10 @@
     $('.ui.form').form({
         fields: {
             title: {
-                identifier: 'name11',
+                identifier: 'name',
                 rules: [{
                     type: 'empty',
-                    prompt: '标题: 请输入分类名称'
+                    prompt: '标题: 请输入标签名称'
                 }]
             }
         }
