@@ -11,6 +11,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     /**
      * 通过用户名密码找个人
+     *
      * @param username
      * @param password
      * @return

@@ -76,9 +76,10 @@ public interface BlogService {
 
     /**
      * 获取归档Map
+     *
      * @return
      */
-    Map<String,List<Blog>> archiveBlog();
+    Map<String, List<Blog>> archiveBlog();
 
 
     /**
@@ -98,6 +99,7 @@ public interface BlogService {
 
     /**
      * 统计博客数量
+     *
      * @return
      */
     Long countBlog();

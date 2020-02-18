@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 分类的service
+ *
  * @author : Dong
  * @date : 2019/11/24 13:24
  */
@@ -15,6 +16,7 @@ public interface TypeService {
 
     /**
      * 保存分类
+     *
      * @param type
      * @return
      */
@@ -22,6 +24,7 @@ public interface TypeService {
 
     /**
      * 根据id获取一个分类
+     *
      * @param id
      * @return
      */
@@ -29,7 +32,8 @@ public interface TypeService {
 
     /**
      * 根据name获取一个分类
-     *      分类在新增和修改保存时都判断过是否为空和是否已拥有，具体在TypeController
+     * 分类在新增和修改保存时都判断过是否为空和是否已拥有，具体在TypeController
+     *
      * @param name
      * @return
      */
@@ -37,6 +41,7 @@ public interface TypeService {
 
     /**
      * 获取分类列表，使用SpringDataJpa自带Page与Pageable
+     *
      * @param pageable
      * @return
      */
@@ -44,12 +49,14 @@ public interface TypeService {
 
     /**
      * 查询所有分类
+     *
      * @return
      */
     List<Type> listType();
 
     /**
      * 查询前size条分类
+     *
      * @param size
      * @return
      */
@@ -57,6 +64,7 @@ public interface TypeService {
 
     /**
      * 删除分类
+     *
      * @param id
      */
     void deleteType(Long id);

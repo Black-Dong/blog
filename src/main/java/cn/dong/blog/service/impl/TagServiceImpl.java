@@ -54,8 +54,8 @@ public class TagServiceImpl implements TagService {
     @Override
     public List<Tag> listTagTop(Integer size) {
 
-        Sort sort = Sort.by(Sort.Direction.DESC,"blogs.size");
-        Pageable pageable = PageRequest.of(0,size,sort);
+        Sort sort = Sort.by(Sort.Direction.DESC, "blogs.size");
+        Pageable pageable = PageRequest.of(0, size, sort);
         return tagRepository.findTop(pageable);
     }
 
@@ -67,12 +67,13 @@ public class TagServiceImpl implements TagService {
 
     /**
      * 将一组id组成的字符串 eg: 1,2,3 转化为id组成的集合
+     *
      * @param ids
      * @return
      */
-    private List<Long> covertToList(String ids){
+    private List<Long> covertToList(String ids) {
         List<Long> list = new ArrayList<>();
-        if (ids != null && !"".equals(ids)){
+        if (ids != null && !"".equals(ids)) {
             String[] idarray = ids.split(",");
             for (int i = 0; i < idarray.length; i++) {
                 list.add(new Long(idarray[i]));

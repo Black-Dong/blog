@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 登陆的 Controller
+ *
  * @author : Dong
  * @date : 2019/11/22 9:49
  */
@@ -26,6 +27,7 @@ public class LoginController {
 
     /**
      * 跳转到登陆页
+     *
      * @return
      */
     @GetMapping
@@ -35,6 +37,7 @@ public class LoginController {
 
     /**
      * 登陆操作
+     *
      * @param username
      * @param password
      * @param session
@@ -54,18 +57,19 @@ public class LoginController {
             return "admin/index";
         } else {
             // 未获取用户 返回错误信息
-            redirectAttributes.addFlashAttribute("message","用户名或密码错误");
+            redirectAttributes.addFlashAttribute("message", "用户名或密码错误");
             return "redirect:/admin";
         }
     }
 
     /**
      * 注销用户
+     *
      * @param session
      * @return
      */
     @GetMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         // 删除session中的user
         session.removeAttribute("user");
         return "redirect:/admin";

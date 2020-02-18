@@ -1,7 +1,5 @@
 package cn.dong.blog.po;
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
@@ -9,11 +7,12 @@ import java.util.List;
 
 /**
  * 标签类
+ *
  * @author : Dong
  * @date : 2019/11/21 21:17
  */
 @Entity
-@Table(name = "t_tag", uniqueConstraints = @UniqueConstraint(columnNames = "name",name = "uq_tag_name"))
+@Table(name = "t_tag", uniqueConstraints = @UniqueConstraint(columnNames = "name", name = "uq_tag_name"))
 public class Tag {
 
     @Id

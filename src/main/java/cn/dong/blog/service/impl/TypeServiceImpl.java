@@ -1,10 +1,8 @@
 package cn.dong.blog.service.impl;
 
 import cn.dong.blog.dao.TypeRepository;
-import cn.dong.blog.exception.NotFoundException;
 import cn.dong.blog.po.Type;
 import cn.dong.blog.service.TypeService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

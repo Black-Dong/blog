@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 配置类
+ *
  * @author : Dong
  * @date : 2019/11/24 11:56
  */
@@ -15,6 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     /**
      * 把那个私人的登陆拦截器注册到拦截器的官方组织里
+     *
      * @param registry
      */
     @Override

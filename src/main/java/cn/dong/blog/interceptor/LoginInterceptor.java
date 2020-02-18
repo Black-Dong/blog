@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 登陆拦截器，记得去配置类让他注册到拦截器的大家庭
+ *
  * @author : Dong
  * @date : 2019/11/24 11:51
  */
@@ -23,7 +24,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws Exception {
-        if (request.getSession().getAttribute("user") == null){
+        if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/admin");
             return false;
         }

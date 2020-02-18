@@ -11,10 +11,11 @@ import java.util.List;
  * @author : Dong
  * @date : 2019/11/24 13:29
  */
-public interface TypeRepository extends JpaRepository<Type,Long> {
+public interface TypeRepository extends JpaRepository<Type, Long> {
 
     /**
      * 通过名字找个分类
+     *
      * @param name
      * @return
      */
@@ -22,6 +23,7 @@ public interface TypeRepository extends JpaRepository<Type,Long> {
 
     /**
      * 根据pageable中的属性查询分类列表
+     *
      * @param pageable
      * @return
      */

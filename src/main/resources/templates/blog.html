@@ -63,7 +63,8 @@
         </div>
         <div class="ui attached segment">
             <!-- 图片区域 -->
-            <img src="https://picsum.photos/id/1005/800/450" th:src="@{${blog.firstPicture}}" alt="" class="ui fluid rounded image">
+            <img src="https://picsum.photos/id/1005/800/450" th:src="@{${blog.firstPicture}}" alt=""
+                 class="ui fluid rounded image">
         </div>
         <div class="ui attached padded segment">
             <!--内容-->
@@ -74,7 +75,8 @@
             <h2 class="ui center aligned header" th:text="${blog.title}">Typo.css</h2>
             <br>
             <!--文章内容-->
-            <div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large" th:utext="${blog.content}">
+            <div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large"
+                 th:utext="${blog.content}">
                 <h2 id="section1">一、关于 <i class="serif">Typo.css</i></h2>
 
                 <pre><code class="language-css">p { color: red }</code></pre>
@@ -472,23 +474,26 @@ h5,h6{font-size:1em;}
 
             <!-- 标签 -->
             <div class="m-padded-lr">
-                <div class="ui basic teal left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论</div>
+                <div class="ui basic teal left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论
+                </div>
             </div>
             <!-- 赞赏 -->
             <th:block th:if="${blog.appreciation}">
-                <div class="ui basic segment center aligned" >
+                <div class="ui basic segment center aligned">
                     <button id="payButton" class="ui orange circular basic button">赞赏</button>
                 </div>
                 <div class="ui payQR flowing popup transition hidden">
                     <div class="ui orange basic label">
                         <div class="ui images" style="font-size: inherit">
                             <div class="image">
-                                <img src="../static/images/wechat.jpg" th:src="@{#{ali.pay.barcode}}" alt="" class="ui rounded bordered image"
+                                <img src="../static/images/wechat.jpg" th:src="@{#{ali.pay.barcode}}" alt=""
+                                     class="ui rounded bordered image"
                                      style="width: 120px">
                                 <div>支付宝</div>
                             </div>
                             <div class="image">
-                                <img src="../static/images/wechat.jpg" th:src="@{#{weixin.pay.barcode}}" alt="" class="ui rounded bordered image"
+                                <img src="../static/images/wechat.jpg" th:src="@{#{weixin.pay.barcode}}" alt=""
+                                     class="ui rounded bordered image"
                                      style="width: 120px">
                                 <div>微信</div>
                             </div>
@@ -503,14 +508,18 @@ h5,h6{font-size:1em;}
             <div class="ui grid stackable middle aligned">
                 <div class="eleven wide column">
                     <ul class="list">
-                        <li>作者：<span th:text="${blog.user.nickName}">李仁密</span><a href="#" th:href="@{/about}" target="_blank">（联系作者）</a></li>
-                        <li>发表时间：<span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd HH:mm')}">2017-10-02 09:08</span></li>
+                        <li>作者：<span th:text="${blog.user.nickName}">李仁密</span><a href="#" th:href="@{/about}"
+                                                                                  target="_blank">（联系作者）</a></li>
+                        <li>发表时间：<span
+                                th:text="${#dates.format(blog.createTime,'yyyy-MM-dd HH:mm')}">2017-10-02 09:08</span>
+                        </li>
                         <li>版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
                         <li>公众号转载：请在文末添加作者公众号二维码</li>
                     </ul>
                 </div>
                 <div class="five wide column">
-                    <img src="../static/images/wechat.jpg" th:src="@{#{weixin.barcode}}" alt="" class="ui right floated rounded bordered image"
+                    <img src="../static/images/wechat.jpg" th:src="@{#{weixin.barcode}}" alt=""
+                         class="ui right floated rounded bordered image"
                          style="width: 110px">
                 </div>
             </div>
@@ -624,7 +633,7 @@ h5,h6{font-size:1em;}
 <div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
     <div class="ui vertical icon buttons ">
         <button id="toc" type="button" class="ui teal button">目录</button>
-<!--        <a href="#comment-container" class="ui teal button">留言</a>-->
+        <!--        <a href="#comment-container" class="ui teal button">留言</a>-->
         <button class="ui wechat icon button"><i class="wechat icon"></i></button>
         <div id="toTopButton" class="ui icon button"><i class="chevron up icon"></i></div>
     </div>

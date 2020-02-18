@@ -12,8 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 异常处理器
- *      注意@ControllerAdvice  @ExceptionHandler 两个注解 AnnotationUtils.findAnnotation(...)方法
- *          之前不常用，需要留意
+ * 注意@ControllerAdvice  @ExceptionHandler 两个注解 AnnotationUtils.findAnnotation(...)方法
+ * 之前不常用，需要留意
+ *
  * @author : Dong
  * @date : 2019/11/21 14:52
  */
@@ -25,7 +26,7 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ModelAndView exceptionHandler(HttpServletRequest request, Exception e) throws Exception {
 
-        logger.error("Request URL: {}, Exception: {}", request.getRequestURL(),e);
+        logger.error("Request URL: {}, Exception: {}", request.getRequestURL(), e);
 
         // 对有返回状态的异常进行抛出，让spring自己处理，默认会找在templates/error下的 {返回状态码}.html
         if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
@@ -35,7 +36,7 @@ public class ControllerExceptionHandler {
         // 其余异常全部去error下的error.html
         ModelAndView mv = new ModelAndView();
         mv.addObject("url", request.getRequestURL());
-        mv.addObject("exception",e);
+        mv.addObject("exception", e);
         mv.setViewName("error/error");
         return mv;
     }

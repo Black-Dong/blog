@@ -2,6 +2,7 @@ package cn.dong.blog.vo;
 
 /**
  * 博客搜索时的条件类
+ *
  * @author : Dong
  * @date : 2019/11/25 13:52
  */

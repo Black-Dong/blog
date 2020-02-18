@@ -1,6 +1,5 @@
 package cn.dong.blog.aspect;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
@@ -14,7 +13,8 @@ import java.util.Arrays;
 
 /**
  * 日志切面
- *      悄悄记录你ip、访问地址、访问了啥、服务器返回了啥的，就是这个
+ * 悄悄记录你ip、访问地址、访问了啥、服务器返回了啥的，就是这个
+ *
  * @author : Dong
  * @date : 2019/11/21 15:25
  */
@@ -40,7 +40,7 @@ public class LogAspect {
         String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
 
-        RequestLog requestLog = new RequestLog(url,ip,classMethod,args);
+        RequestLog requestLog = new RequestLog(url, ip, classMethod, args);
 
         logger.info("Request : {}", requestLog);
     }
@@ -52,10 +52,10 @@ public class LogAspect {
 
     @AfterReturning(returning = "result", pointcut = "log()")
     public void doAfterReturn(Object result) {
-        logger.info("Result : {}" , result);
+        logger.info("Result : {}", result);
     }
 
-    private class RequestLog{
+    private class RequestLog {
         private String url;
         private String ip;
         private String classMethod;

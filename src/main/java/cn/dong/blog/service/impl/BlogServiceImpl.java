@@ -39,11 +39,11 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog getAndConvertBlog(Long id) {
         Blog blog = blogRepository.getOne(id);
-        if (blog == null){
+        if (blog == null) {
             throw new NotFoundException("没有找到该博客");
         }
         Blog resultBlog = new Blog();
-        BeanUtils.copyProperties(blog,resultBlog);
+        BeanUtils.copyProperties(blog, resultBlog);
         String content = resultBlog.getContent();
         resultBlog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
 
@@ -80,9 +80,9 @@ public class BlogServiceImpl implements BlogService {
     public Map<String, List<Blog>> archiveBlog() {
 
         List<String> years = blogRepository.findGroupYear();
-        Map<String,List<Blog>> archiveMap = new HashMap<>();
-        for (String year : years){
-            archiveMap.put(year,blogRepository.findByYear(year));
+        Map<String, List<Blog>> archiveMap = new HashMap<>();
+        for (String year : years) {
+            archiveMap.put(year, blogRepository.findByYear(year));
         }
 
         return archiveMap;
@@ -90,13 +90,13 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<Blog> listRecommendBlogTop(Integer size) {
-        Pageable pageable = PageRequest.of(0,size, Sort.Direction.DESC,"updateTime");
+        Pageable pageable = PageRequest.of(0, size, Sort.Direction.DESC, "updateTime");
         return blogRepository.findTop(pageable);
     }
 
     @Override
-    public Page<Blog> listBlog(String search,Pageable pageable) {
-        return blogRepository.findBlogsBySearch(search,pageable);
+    public Page<Blog> listBlog(String search, Pageable pageable) {
+        return blogRepository.findBlogsBySearch(search, pageable);
     }
 
     @Override
@@ -106,9 +106,9 @@ public class BlogServiceImpl implements BlogService {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 Join join = root.join("tags");
-                return criteriaBuilder.equal(join.get("id"),tagId);
+                return criteriaBuilder.equal(join.get("id"), tagId);
             }
-        },pageable);
+        }, pageable);
     }
 
     @Override

@@ -30,17 +30,17 @@ public class TypeShowController {
 
     @GetMapping("/types/{id}")
     public String types(@PathVariable Long id, @PageableDefault(sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                        Model model){
+                        Model model) {
         List<Type> types = typeService.listType();
-        if (id == -1){
+        if (id == -1) {
             id = types.get(0).getId();
         }
 
         BlogSearch blogSearch = new BlogSearch();
         blogSearch.setTypeId(id);
-        model.addAttribute("types",types);
-        model.addAttribute("page",blogService.listBlog(pageable,blogSearch));
-        model.addAttribute("activeTypeId",id);
+        model.addAttribute("types", types);
+        model.addAttribute("page", blogService.listBlog(pageable, blogSearch));
+        model.addAttribute("activeTypeId", id);
 
         return "types";
     }

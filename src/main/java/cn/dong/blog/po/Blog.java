@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * 博客类
+ *
  * @author : Dong
  * @date : 2019/11/21 21:02
  */
@@ -66,6 +67,7 @@ public class Blog {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public List<Comment> getComments() {
         return comments;
     }

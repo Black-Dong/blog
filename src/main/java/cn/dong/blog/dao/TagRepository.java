@@ -11,10 +11,11 @@ import java.util.List;
  * @author : Dong
  * @date : 2019/11/24 18:31
  */
-public interface TagRepository extends JpaRepository<Tag,Long> {
+public interface TagRepository extends JpaRepository<Tag, Long> {
 
     /**
      * 通过名字找个标签
+     *
      * @param name
      * @return
      */
@@ -22,6 +23,7 @@ public interface TagRepository extends JpaRepository<Tag,Long> {
 
     /**
      * 根据pageable中的属性查询标签列表
+     *
      * @param pageable
      * @return
      */

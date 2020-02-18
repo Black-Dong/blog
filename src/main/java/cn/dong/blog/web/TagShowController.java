@@ -3,7 +3,6 @@ package cn.dong.blog.web;
 import cn.dong.blog.po.Tag;
 import cn.dong.blog.service.BlogService;
 import cn.dong.blog.service.TagService;
-import cn.dong.blog.vo.BlogSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -29,17 +28,19 @@ public class TagShowController {
     private BlogService blogService;
 
     @GetMapping("/tags/{id}")
-    public String tags(@PathVariable Long id, @PageableDefault(sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                        Model model){
+    public String tags(@PathVariable Long id,
+                       @PageableDefault(sort = {"updateTime"}, direction = Sort.Direction.DESC)
+                               Pageable pageable,
+                       Model model) {
         List<Tag> tags = tagService.listTag();
-        if (id == -1){
+        if (id == -1) {
             id = tags.get(0).getId();
         }
 
 
-        model.addAttribute("tags",tags);
-        model.addAttribute("page",blogService.listBlog(pageable,id));
-        model.addAttribute("activeTagId",id);
+        model.addAttribute("tags", tags);
+        model.addAttribute("page", blogService.listBlog(pageable, id));
+        model.addAttribute("activeTagId", id);
 
         return "tags";
     }
