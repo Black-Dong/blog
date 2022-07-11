@@ -51,7 +51,8 @@
                 <div class="item">
                     <img src="https://picsum.photos/id/1005/100/100" th:src="@{${blog.user.avatar}}" alt=""
                          class="ui avatar image">
-                    <div class="content"><a href="#" th:href="${blog.user.nickName}" class="header">李仁密</a></div>
+
+                    <div class="content"><a href="#" th:text="${blog.user.nickName}" class="header">李仁密</a></div>
                 </div>
                 <div class="item">
                     <i class="calendar icon"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-10-02</span>
